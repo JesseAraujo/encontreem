@@ -4,7 +4,7 @@ import { FiPlus, FiArrowRight } from 'react-icons/fi'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 import mapIcon from '../utils/mapIcon'
-import mapMarkerImg from '../images/map-marker.svg'
+import mapMarkerImg from '../images/Logo.svg'
 
 import '../styles/pages/orphanages-map.css'
 import api from '../services/api'
@@ -32,10 +32,17 @@ function OrphanagesMap() {
             <aside>
                 <header>
                     <img src={mapMarkerImg} alt="Logo Happy" />
-
-                    <h2>Escolha um orfanato no mapa</h2>
-                    <p>Muitas crianças estão esperando a sua visita :)</p>
                 </header>
+
+                <main>
+                    <span>Vamos te ajudar a encontrar a loja.</span>
+                    <p>Digite parte do nome ou segmento para eu entender o que procura!</p>
+
+                    <form action="">
+                        <input type="text" />
+                    </form>
+
+                </main>
 
                 <footer>
                     <strong>Piraju</strong>
@@ -48,9 +55,8 @@ function OrphanagesMap() {
                 zoom={15}
                 style={{ width: '100%', height: '100%' }}
             >
-                {/*<TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"/>*/}
                 <TileLayer
-                    url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+                    url={`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
                 />
 
                 {orphanages.map(orphanage => {
